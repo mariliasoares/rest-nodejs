@@ -1,11 +1,7 @@
-const atendimentos = require('../models/atendimentos')
-const Atendimento = require('../models/atendimentos')
+const Atendimento = require('../models/atendimento')
 
 module.exports = app => {
     app.get('/atendimentos', (req, res) => {
-        console.log('Vc está em get atendimentos')
-        console.log(res)
-        console.log('Fim do res')
         Atendimento.lista(res)
     })
 
@@ -17,6 +13,7 @@ module.exports = app => {
 
     app.post('/atendimentos', (req, res) => {
         const atendimento = req.body
+
         Atendimento.adiciona(atendimento, res)
     })
 
@@ -29,6 +26,7 @@ module.exports = app => {
 
     app.delete('/atendimentos/:id', (req, res) => {
         const id = parseInt(req.params.id)
+        
         Atendimento.deleta(id, res)
     })
 }
