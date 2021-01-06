@@ -7,9 +7,9 @@ conexao.connect(erro => {
         console.log("Erro " + erro)
     }
     else {
+        Tabelas.init(conexao)
         console.log("Banco de dados conectado com sucesso")
 
-        Tabelas.init(conexao)
         const app = customExpress()
 
         app.listen(3000, () => console.log('Servidor rodando na porta 3000'))
